@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理员登录</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/mag-log.css">
+</head>
+<body>
+	<div id="app">
+		<div class="admin-login">
+			<h1 class="admin-login-title">管理员登录</h1>
+			<form action="/users/login/admin" method="post">
+				<label for="username">管理员号码</label>
+				<input type="text" class="form-control" placeholder="管理员号码" name="username">
+
+				<label for="in-pwd">密码</label>
+				<input id="in-pwd" type="password" class="form-control" placeholder="密码">	
+					
+				<input id="re-pwd" type="hidden" placeholder="密码" name="password">
+				<button class="btn btn-primary">登录</button>
+			</form>
+		</div>
+	</div>
+
+	<script src="../js/md5.js"></script>
+	<script>
+		var encodeLogPwd = function() {
+			var inPwd = document.getElementById('in-pwd');
+			var realPwd = document.getElementById('re-pwd');
+
+			inPwd.onkeyup = function(ev)  {		
+				realPwd.value = md5(inPwd.value);
+			}
+		}
+		encodeLogPwd();
+	</script>
+</body>
+</html>
