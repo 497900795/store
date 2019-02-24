@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>管理界面</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/mag-work.css">
+</head>
+<body>
+	<div id="app">
+		<div class="top">
+			<input type="text" class="form-control" placeholder="输入产品id" v-model="selID">
+			<button class="btn btn-primary" @click="selGoods()">查找</button>
+			<button class="btn btn-success" data-toggle="modal" data-target="#add-good">添加商品</button>
+			<button class="btn btn-danger" @click="logout()">登出</button>
+		</div>
+		<div class="goods" v-if="goData.length!=0">
+			<div class="good-item" v-for="(item,index) in goData">
+				<div class="good-item-desc">
+					<div class="good-item-desc-info">
+						<label for="">商品编号</label>
+						<input type="text" class="form-control" v-model="item.GoodsID">
+						<label for="">商品名称</label>
+						<input type="text" class="form-control" v-model="item.GoodsName">
+						<label for="">商品价格</label>
+						<input type="text" class="form-control" v-model="item.GoodsPrice">	
+					</div>
+					<div class="good-item-desc-pic">
+						<img :src="item?item.GoodsPictureUrl:'/img/img2.jpg'">
+					</div>
+				</div>
+				<label for="">商品销量</label>
+				<input type="text" class="form-control" v-model="item.GoodsSales">
+				<label for="">商品类别</label>
+				<input type="text" class="form-control" v-model="item.CategoryID">	
+				<label for="">商品简介</label>
+				<textarea type="text" class="form-control">{{item.GoodsDescription}}</textarea>
+				<label for="">上传图片</label>
+				<div>
+					<form action="/admin/chgPic" method="post" enctype="multipart/form-data">
+						<div class="upload-pic">
+							<input type="file" class="in-file" name="File">
+							<input class="btn btn-sm btn-primary" type="submit" value="提交图片">
+						</div>
+						<input type="hidden" v-model="item.GoodsID" name="GoodsID">
+					</form>
+				</div>
+				<hr>
+				<div class="good-item-btns">
+					<button class="btn btn-primary" @click="nowIndex=index;sbChg();">提交修改</button>
+					<button class="btn btn-danger" @click="nowIndex=index;sbDel()">删除商品</button>
+				</div>
+			</div>
+		</div>
+
+		<!--添加商品模态框-->
+		<div class="modal fade" id="add-good" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel">产品添加商品</h4>
+		            </div>
+		            <div class="modal-body">
+		     			<label for="GoodsID">商品ID</label>
+		     			<input type="text" class="form-control" v-model="addData['GoodsID']">
+		     			<label for="GoodsName">商品名称</label>
+		     			<input type="text" class="form-control" v-model="addData['GoodsName']">
+		     			<label for="GoodsPrice">商品价格</label>
+		     			<input type="text" class="form-control" v-model="addData['GoodsPrice']">
+		     			<label for="GoodsType">商品类别</label>
+		     			<input type="text" class="form-control" v-model="addData['CategoryID']">
+		     			<label for="GoodsDescription">商品描述</label>
+		     			<textarea class="form-control" v-model="addData['GoodsDescription']"></textarea>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal" @click="sbAdd()">确认</button>
+						<button type="button" class="btn btn-danger" data-dismiss="modal">关闭</button>
+					</div>
+	            </div>
+	        </div>
+	    </div>
+		
+	</div>
+
+	<script src="../js/vue.js"></script>
+	<script src="../js/jq.js"></script>
+	<script src="../js/bootstrap.js"></script>
+	<script src="../js/mag.js"></script>
+</body>
+</html>

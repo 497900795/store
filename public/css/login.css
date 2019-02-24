@@ -1,0 +1,133 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+.head {
+	position: absolute;
+	z-index: 99999;
+	top: 2em;
+	width: 100%;
+	padding: 0 2em 0 2em;
+}
+
+.head .welcome {
+	font-size: 300%;
+	float: left;
+	padding: 1em 1.5em;
+	background-color: rgba(255, 255, 255, 0.4);
+	border-radius: 0.2em;
+}
+/*
+.head .register {
+	font-size: 100%;
+	float: right;
+	padding: 1em 0;
+}
+*/
+
+#admin-login {
+	display: block;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	z-index: 99999;
+}
+
+.main {
+	height: 600px;
+}
+
+.car {
+	position: relative;	
+	width: 1519px;
+	height: 600px;
+	overflow: hidden;
+}
+
+.car-container {
+	position: absolute;
+	width: 7595px;
+}
+
+.car-active {
+	transition: left 1s;
+}
+
+.car-item {
+	float: left;
+	list-style: none;
+}
+
+.car-item img {
+	width: 1519px;
+	height: 600px;
+}
+
+.login {
+	position: absolute;
+	border-radius: 5%;
+	padding: 2% 2% 3% 2%;
+	width: 37%;
+	min-width: 25em;
+	right: 5%;
+	top: 10%;
+	min-height: 25em;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	overflow: hidden;
+}
+
+.login h1 {
+	font-size: 250%;
+	text-align: center;
+}
+
+.login h2 {
+	font-size: 150%;
+	text-align: center;
+}
+
+.login label {
+	font-size: 150%;
+}
+
+.lg {
+	width: 30%;
+	float: right;
+}
+
+.foot {
+    display: flex;
+    background-color: #DCFFFF;
+}
+
+.foot div {
+    width: 50%;
+    font-size: 180%;
+}
+.conact {
+	padding: 1%;
+}
+
+.conact p {
+	width: auto;
+	font-size: 40%;
+}
+
+.explain {
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.explain > pre {
+    font-family: '微软雅黑', '黑体', '宋体';
+    background: none;
+    border: none;
+    font-size: 100%;
+    width: 100%;
+}
+
