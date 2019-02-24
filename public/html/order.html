@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>历史订单</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/order.css">
+</head>
+<body>
+	<div id="app">
+		<div class="head">
+			<div class="head-up">
+				订单查看
+			</div>
+			<div class="head-down">
+				<button class="btn btn-primary" onclick="window.open('/html/store.html','_self')">返回商铺</button>
+			</div>
+		</div>
+		<div class="main">
+			<div class="ord-con" v-show="ordArry.length==0">暂无订单</div>
+			<div class="ord-con" v-for="(ordItem,ordindex) in ordArry" v-if="ordArry.length!=0">
+				<p>订单号:{{ordItem.OrderID}}</p>
+				<p>下单日期:{{ordItem.OrderDate}}</p><!--日期格式化-->
+				<p>订单总价:{{ordItem.OrderPrice}}</p>
+				<div class="ord-list">
+					<div class="ord-item" v-for="(goItem,goIndex) in ordItem['Goods']">
+						<p>商品编号:{{goItem.GoodsID}}</p>
+						<p>商品名称:{{goItem.GoodsName}}</p>
+						<p>购买数量:{{goItem.GoodsCount}}</p>
+						<p>商品单价:{{goItem.GoodsPrice}}</p>
+						<p>商品总价:{{goItem.GoodsPrice * goItem.GoodsCount}}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../js/jq.js"></script>
+	<script src="../js/vue.js"></script>
+	<script src="../js/order.js"></script>
+</body>
+</html>
