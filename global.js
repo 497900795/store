@@ -1,0 +1,21 @@
+
+var globalData = {
+    
+    USER_TYPE_ADMIN: 0,
+    USER_TYPE_COMMON: 1,
+
+    ERR_OK: 0,
+    ERR_NOT_LOGIN: 1,
+    ERR_ACCESS_DENIED: 1,
+    ERR_USER_EXIST: 3,
+    ERR_LOGIN_FAILED: 4,
+    ERR_REGISTER_FAILED: 5,
+    ERR_ADD_CART_FAILED: 6,
+    ERR_PAY_CART_FAILED: 7,
+    ERR_GET_CART_FAILED: 8,
+    ERR_GET_ORDER_FAILED: 9,
+    ERR_DEL_CART_FAILED: 10,
+    ERR_ADMIN_ERROR: 11,
+};
+
+module.exports = globalData;
